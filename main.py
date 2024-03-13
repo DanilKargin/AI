@@ -2,6 +2,7 @@ import numpy as np
 from random import randint
 import itertools
 from FuzzySet import FuzzySet
+from LinguisticScale import LinguisticScale
 class GenericAlgorithm:
 
 
@@ -107,7 +108,6 @@ class BruteForceAlgorithm:
                     if numbers[i] != 0:
                         print('-' + self.products[i][0])
                 break
-
     def check_standards(self, variant):
         adaptability = float('inf')
         sum_parameter = np.array(self.medical_standards) * -1
@@ -128,4 +128,6 @@ class BruteForceAlgorithm:
 if __name__ == "__main__":
     #GenericAlgorithm([["Яблоко", [0.40, 0.40, 9.80, 47, 10]], ["Вареное яйцо", [6.3, 5.31, 0.56, 78, 11]], ["Овсянка 50г", [6.5, 3.1, 33, 178, 6.45]], ["Сок аплеьсиновый 150мл", [0, 0, 12, 48, 19.5]], ["Йогурт", [4, 2.7, 6.8, 75, 50]], ["Бекон 100г", [16, 40, 0, 420, 90]], ["Хлеб 100г", [8.5, 3.3, 48.3, 259, 14]]], [34, 25, 60, 600, 0], 100, 100)
     #BruteForceAlgorithm([["Яблоко", [0.40, 0.40, 9.80, 47, 10]], ["Вареное яйцо", [6.3, 5.31, 0.56, 78, 11]], ["Овсянка 50г", [6.5, 3.1, 33, 178, 6.45]], ["Сок аплеьсиновый 150мл", [0, 0, 12, 48, 19.5]], ["Йогурт", [4, 2.7, 6.8, 75, 50]], ["Бекон 100г", [16, 40, 0, 420, 90]], ["Хлеб 100г", [8.5, 3.3, 48.3, 259, 14]]], [34, 25, 60, 600, 0])
-    FuzzySet([["Very cold", -50, -25, -15], ["Cold", -15, -5, 5], ["Warm", 5, 10, 15], ["Hot", 15, 20, 30], ["Very hot", 30, 40, 50]])
+    #FuzzySet([["Very cold", -50, -25, -15], ["Cold", -20, -10, 5], ["Warm", 0, 10, 20], ["Hot", 15, 20, 30], ["Very hot", 25, 40, 50]])
+    data = [30, 5, 0, -30, 43, 23, -7, -83, 25, -34, -15, 67]
+    LinguisticScale([["Спад продаж", [-100, -70, -30, -5]], ["Стабильные продажи", [-15, 0, 15]], ["Рост продаж", [5, 30, 70, 100]]], data)
